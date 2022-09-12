@@ -12,4 +12,4 @@ First noticeable, there are empty bills - one for each month in a year. You can 
 4. Switch to the alfajores testnet in the CeloExtensionWallet.
 
 # Demo
-https://lzanelzaz.github.io/web-dapp/
+https://lzanelzaz.github.io/Pay-Bills-Dapp/
