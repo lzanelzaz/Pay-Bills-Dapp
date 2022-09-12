@@ -145,6 +145,7 @@ contract PayBills is Ownable {
             isLate
         );
         uint newBillLength = billsLength - 1;
+        _exists[newBillLength] = false;
         bills[billId] = bills[newBillLength];
         delete bills[newBillLength];
         billsLength = newBillLength;
