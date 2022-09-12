@@ -1,5 +1,10 @@
 This is a repo containing my submission for celo 101 developement.
 
+# Pay Bills Dapp
+Pay Bills Dapp is Dapp to help tenants to pay landlords for household bills.
+ 
+First noticeable, there are empty bills - one for each month in a year. You can check was it paid or not, how much needs to be paid for electricity, water, internet providing separately and in total. 
+
 # Usage
 1. Install the [CeloExtensionWallet](https://chrome.google.com/webstore/detail/celoextensionwallet/kkilomkmpmkbdnfelcpgckmpcaemjcdh?hl=en) from the google chrome store.
 2. Create a wallet.
