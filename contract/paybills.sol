@@ -29,13 +29,17 @@ contract PayBills {
     // [month] = Bill
     mapping(uint => Bill) private bills;
 
+    modifier validMonthNumber(uint _month) {
+        require(1 <= _month && _month <= 12, "Month number should be from 1 to 12");
+        _;
+    }
+    
     function createBill(
         uint _month,
         uint _electricityCost,
         uint _waterCost,
         uint _internetCost
-    ) public 
-    validMonthNumber(_month)  {
+    ) public validMonthNumber(_month)  {
         bills[_month] = Bill(
             payable(msg.sender),
             _electricityCost,
@@ -46,8 +50,8 @@ contract PayBills {
         );
     }
 
-    function payBill(uint _month) 
-    public payable {
+    function payBill(uint _month) public payable {
+        require(msg.sender != bills[_month].houseOwnerAdress);
         require(
           IERC20Token(cUsdTokenAddress).transferFrom(
             msg.sender,             // from
@@ -59,9 +63,7 @@ contract PayBills {
         bills[_month].isPaid = true;
     }
 
-    function getBill(uint _month) 
-    public view
-    validMonthNumber(_month) 
+    function getBill(uint _month) public view validMonthNumber(_month) 
     returns (
         address houseOwnerAdress,
         uint electricityCost, 
@@ -82,9 +84,5 @@ contract PayBills {
         );
     }
 
-    modifier validMonthNumber(uint _month) {
-        require(1 <= _month && _month <= 12, "Month number should be from 1 to 12");
-        _;
-    }
 
 }
